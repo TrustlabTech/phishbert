@@ -1,7 +1,8 @@
-# 🐟 phishbert
+# phishbert
 
 A Slack bot that monitors and automatically removes messages that match a set of given regex patterns (Ethereum addresses and Etherscan.io links by default). Set this up in your cryptocurrency or ICO Slack instance to automatically moderate potential phishing or scamming attempts.
 
+*An example of what the default configuration looks like:*
 ![What the default configuration looks like](example.png?raw=true "Example")
 
 **Requirements:** It is recommend that you are running NodeJS 8+ and NPM 5+
@@ -21,6 +22,8 @@ Then install dependencies: `npm install`
 3. Duplicate the `env.example` file in the repo and paste in the API token you just generated as the TOKEN= value. Rename your edited `env.example` file to `.env`
 
 4. (Optional) Customize the concatenated regular expressions using `PATTERN` and, whether you want to warn users using `WARN_USER` and the warning message string using `WARNING` in the `.env` file
+
+**Important:** For phishbert to read and delete messages, *it must be added to the channels you wish to moderate*. Make sure to add your new phishbert user to all the channels you want it to monitor.
 
 A default profile photo for phishbert is [included in the repo](phishbert.png) if you'd like to use it. Feel free to name/brand your moderator bot whatever you'd like though 👍
 
