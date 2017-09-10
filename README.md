@@ -2,8 +2,8 @@
 
 A Slack bot that monitors and automatically removes messages that match a set of given regex patterns (Ethereum addresses and Etherscan.io links by default). Set this up in your cryptocurrency or ICO Slack instance to automatically moderate potential phishing or scamming attempts.
 
-*An example of what the default configuration looks like:*
 ![What the default configuration looks like](example.png?raw=true "Example")
+<small>*An example of what the default configuration looks like*</small>
 
 **Requirements:** It is recommend that you are running NodeJS 8+ and NPM 5+
 
