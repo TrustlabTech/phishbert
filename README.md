@@ -1,6 +1,6 @@
 # phishbert
 
-A Slack bot that monitors and automatically removes messages that match a set of given regex patterns (Ethereum addresses and Etherscan.io links by default). Set this up in your cryptocurrency or ICO Slack instance to automatically moderate potential phishing or scamming attempts.
+A Slack bot that monitors and automatically removes messages that match a set of given regex patterns (Ethereum addresses and Etherscan.io links by default, but you can extend this easily yourself). Set this up in your cryptocurrency or ICO Slack instance to automatically moderate potential phishing or scamming attempts. 
 
 ![What the default configuration looks like](example.png?raw=true "Example")
 *An example of what the default configuration looks like*
