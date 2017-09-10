@@ -34,3 +34,14 @@ Fire up phishbert using: `npm start`
 In a production environment, you will likely want to daemonize this process using something like PM2 or Forever to keep it running in the background.
 
 To do so, simply install Forever globally with `npm install forever -g` and then daemonize the script using `forever start index.js` from the repo directory. This will keep phishbert alive even if an error occurs. You can monitor your Forever process using `forever list`
+
+## Contributing
+
+There are plenty of optimizations and features that would be great, some ideas for new contributions:
+
+- Improved regex patterns to cover more potential phishing vectors
+- Logging and auto-banning of repeat offenders
+- Tracking tools for team admins
+- GUI for enabling/disabling regex rules simply
+
+If you want to contribute, pull requests are appreciated!! 😃
