@@ -59,15 +59,3 @@ rtm.on(RTM_EVENTS.MESSAGE, function handleRtmMessage(message) {
         }
     }
 });
-
-// Simple web frontend
-var app = express();
-var port = process.env.PORT || 3000;
-
-app.get('/', function (req, res) {
-  res.send('phishbert is running! you should see your user online in Slack');
-});
-
-app.listen(3000, function () {
-  console.log('Web frontend listening on port', port);
-});
