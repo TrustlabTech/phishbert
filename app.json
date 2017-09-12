@@ -26,5 +26,13 @@
   },
   "scripts": {
     "postdeploy": "npm install"
+  },
+  "formation": {
+        "web": { 
+            "quantity": 0
+        },
+        "worker": { 
+            "quantity": 1
+        }
   }
 }
