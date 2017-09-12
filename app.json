@@ -34,5 +34,6 @@
         "worker": { 
             "quantity": 1
         }
-  }
+  },
+  "success_url": "https://github.com/ummjackson/phishbert#deploying-via-heroku"
 }
