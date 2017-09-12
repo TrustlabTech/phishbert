@@ -11,9 +11,6 @@
     "dotenv": "^4.0.0"
   },
   "devDependencies": {},
-  "scripts": {
-    "start": "node index.js"
-  },
   "author": "Jackson Palmer (@ummjackson)",
   "license": "MIT"
 }

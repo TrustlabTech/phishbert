@@ -3,7 +3,6 @@ var RtmClient = require('@slack/client').RtmClient;
 var CLIENT_EVENTS = require('@slack/client').CLIENT_EVENTS;
 var RTM_EVENTS = require('@slack/client').RTM_EVENTS;
 var WebClient = require('@slack/client').WebClient;
-var express = require('express')
 
 // Grab TOKEN value from .env file
 var token = process.env.TOKEN || '';
