@@ -7,13 +7,21 @@ A Slack bot that monitors and automatically removes messages that match a set of
 
 **Requirements:** It is recommend that you are running NodeJS 8+ and NPM 5+
 
-## Install
+## Deploying via Heroku
+
+You can quickly deploy phishbert using Heroku and keep it running by upgrading to their $7/mo "Hobby" plan following deployment. **Do not try to run the bot on the Free Dyno plan, it will sleep after 30 minutes and stop working.**
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/ummjackson/phishbert)
+
+## Deploying manually to your own server
+
+### Install
 
 First clone the repo: `git clone https://github.com/ummjackson/phishbert.git`
 
 Then install dependencies: `npm install`
 
-## Setup
+### Setup
 
 1. Create a "phishbert" user on your Slack team and give the user admin permissions. This needs to be a regular Slack account associated with an email address, it can **not** be a bot account (they don't have delete permissions)
 
@@ -27,9 +35,9 @@ Then install dependencies: `npm install`
 
 A default profile photo for phishbert is [included in the repo](phishbert.png) if you'd like to use it. Feel free to name/brand your moderator bot whatever you'd like though 👍
 
-##  Running
+###  Running
 
-Fire up phishbert using: `npm start`
+Fire up phishbert using: `node index.js`
 
 In a production environment, you will likely want to daemonize this process using something like PM2 or Forever to keep it running in the background.
 
