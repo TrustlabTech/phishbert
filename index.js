@@ -58,3 +58,18 @@ rtm.on(RTM_EVENTS.MESSAGE, function handleRtmMessage(message) {
         }
     }
 });
+
+// Intercept and parse every message
+rtm.on(RTM_EVENTS.USER_CHANGE, function handleRtmMessage(message) {
+    if (message.type === 'user_change'){
+        console.log(message);
+        console.log("__ALL USERS___");
+        web.user.list(function(err, res) {
+            if (err) {
+                console.log('Error:', err);
+            } else {
+                console.log(res);
+            }
+       });
+    }
+});
