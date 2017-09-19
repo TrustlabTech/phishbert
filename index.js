@@ -10,11 +10,42 @@ var token = process.env.TOKEN || '';
 // Moderated message pattern as regex from PATTERN in .env
 var pattern = new RegExp(process.env.PATTERN, 'gi');
 
+// Security alert channel name from SECURITY_CHANNEL in .env
+var securityChannelName = process.env.SECURITY_CHANNEL || '';
+
+// Name check from NAME_CHECK_PATTERN as regEx in .env
+var namePattern = new RegExp(process.env.NAME_CHECK_PATTERN);
+
 // RTM client
 var rtm = new RtmClient(token, {});
 
 // Web client
 var web = new WebClient(token);
+
+var checkName = function(name){
+    return namePattern.test(name);
+}
+
+var postSecurityMessage = function(message){
+    web.groups.list(function(err, res){
+        if(!err){
+            var groupId = '';
+            res.groups.find(function(el){
+                if(el.name == securityChannelName){
+                    console.log('Post message to ' + el.id);
+                    web.chat.postMessage(el.id, errMessage, {
+                        as_user: true,
+                        parse: 'full'
+                    }, function(err, res) {
+                        if (err) {
+                            console.log('Error:', err);
+                        }
+                    });
+                }
+            });
+        }
+    });
+}
 
 // Start real-time messaging client
 rtm.start();
@@ -30,6 +61,7 @@ rtm.on(RTM_EVENTS.MESSAGE, function handleRtmMessage(message) {
     // Check channel messages against phishing pattern
     if (message.type === 'message' && message.channel.charAt(0) == 'C' && pattern.test(message.text)) {
 
+        postSecurityMessage("User @" + message.user + "posted an illegal message '" + message.text + "'");
         // Delete message
         web.chat.delete(message.ts, message.channel, {
             as_user: true
@@ -59,17 +91,16 @@ rtm.on(RTM_EVENTS.MESSAGE, function handleRtmMessage(message) {
     }
 });
 
-// Intercept and parse every message
+// Intercept user change
 rtm.on(RTM_EVENTS.USER_CHANGE, function handleRtmMessage(message) {
+    console.log();
+    console.log();
     if (message.type === 'user_change'){
-        console.log(message);
-        console.log("__ALL USERS___");
-        web.user.list(function(err, res) {
-            if (err) {
-                console.log('Error:', err);
-            } else {
-                console.log(res);
-            }
-       });
+        console.log();
+        if(checkName(message.user.real_name) || checkName(message.user.profile.display_name) || checkName(message.user.real_name) ){
+            var errMessage = "Illegal name change for @" + message.user.real_name + " (Display Name: '" + message.user.profile.display_name + "'";
+            console.log(errMessage);
+            postSecurityMessage(errMessage);
+        }
     }
 });
