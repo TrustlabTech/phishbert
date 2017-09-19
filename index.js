@@ -33,7 +33,7 @@ var postSecurityMessage = function(message){
             res.groups.find(function(el){
                 if(el.name == securityChannelName){
                     console.log('Post message to ' + el.id);
-                    web.chat.postMessage(el.id, errMessage, {
+                    web.chat.postMessage(el.id, message, {
                         as_user: true,
                         parse: 'full'
                     }, function(err, res) {
@@ -61,7 +61,6 @@ rtm.on(RTM_EVENTS.MESSAGE, function handleRtmMessage(message) {
     // Check channel messages against phishing pattern
     if (message.type === 'message' && message.channel.charAt(0) == 'C' && pattern.test(message.text)) {
 
-        postSecurityMessage("User @" + message.user + "posted an illegal message '" + message.text + "'");
         // Delete message
         web.chat.delete(message.ts, message.channel, {
             as_user: true
