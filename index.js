@@ -60,6 +60,7 @@ rtm.on(RTM_EVENTS.MESSAGE, function handleRtmMessage(message) {
 
     // Check channel messages against phishing pattern
     if (message.type === 'message' && message.channel.charAt(0) == 'C' && pattern.test(message.text)) {
+        postSecurityMessage(":warning: It looks like user ID:" + message.user + " tried to post an Ethereum address or Etherscan link that could be used for phishing/stealing funds!");
 
         // Delete message
         web.chat.delete(message.ts, message.channel, {
@@ -97,7 +98,7 @@ rtm.on(RTM_EVENTS.USER_CHANGE, function handleRtmMessage(message) {
     if (message.type === 'user_change'){
         console.log();
         if(checkName(message.user.real_name) || checkName(message.user.profile.display_name) || checkName(message.user.real_name) ){
-            var errMessage = "Illegal name change for @" + message.user.real_name + " (Display Name: '" + message.user.profile.display_name + "'";
+            var errMessage = ":warning: Illegal name change for @" + message.user.real_name + " (Display Name: '" + message.user.profile.display_name + "'";
             console.log(errMessage);
             postSecurityMessage(errMessage);
         }
