@@ -23,13 +23,7 @@ var rtm = new RtmClient(token, {});
 var web = new WebClient(token);
 
 // variable to store ixo users
-var defaultUsers = {
-    "U6MBWN09G":{profileName: "ixo.lohan", realName: "Lohan Spies"},
-    "U6NBVNL1M":{profileName: "ixo.cedric", realName: "Cedric Franz"},
-    "U7P0T2SQ5":{profileName: "ixo.nicolaas", realName: "Nicolaas Vercuiel"}
-};
-
-var ixoUsers = JSON.parse(JSON.stringify(defaultUsers));
+var ixoUsers = require('./defaultUsers');
 
 var checkName = function(name){
     return namePattern.test(name);
