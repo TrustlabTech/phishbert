@@ -13,5 +13,6 @@ module.exports = {
   "U85DZ7962":{profileName: "ixo.michal", realName: "Michal Shachman"},
   "U7P0T2SQ5":{profileName: "ixo.nicolaas", realName: "Nicolaas Vercuiel"},
   "U8PHTA5SQ":{profileName: "ixo.tim", realName: "Tim"},
-  "U8PDYL6AG":{profileName: "ixo.donovan", realName: "Donovan Risk"}
+  "U8PDYL6AG":{profileName: "ixo.donovan", realName: "Donovan Risk"},
+  "U8QMM4S20":{profileName: "@ixo.elliot", realName: "Elliot Bunney"}
 };
